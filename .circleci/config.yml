@@ -1,9 +1,9 @@
 version: 2.1
 jobs:
-  build:
-    working_directory: ~/circle-ci-node
+  test-locally:
     docker:
       - image: circleci/node:10.16.3
+    working_directory: ~/circle-ci-node
     steps:
       - checkout
       - restore_cache:
@@ -15,6 +15,20 @@ jobs:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: test
-          command: npm test
+  push-image:
+    machine: true
+    steps:
+      - checkout
+      - run: echo ${GOOGLE_AUTH} > ${HOME}/gcp-key.json
+      - run: docker build --rm=false -t eu.gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:$CIRCLE_SHA1 .
+      - run: gcloud auth activate-service-account --key-file ${HOME}/gcp-key.json
+      - run: gcloud --quiet config set project ${GCP_PROJECT}
+      - run: gcloud docker -- push eu.gcr.io/${GCP_PROJECT}/${IMAGE_NAME}:$CIRCLE_SHA1
+workflows:
+  version: 2
+  test-and-build-image:
+    jobs:
+      - test-locally
+      - push-image:
+          requires:
+            - test-locally
