@@ -1,9 +1,9 @@
 version: 2.1
 jobs:
-  build:
-    working_directory: ~/circle-ci-node
+  test-locally:
     docker:
       - image: circleci/node:10.16.3
+    working_directory: ~/circle-ci-node
     steps:
       - checkout
       - restore_cache:
