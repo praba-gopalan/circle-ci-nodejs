@@ -17,11 +17,6 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: Run tests
-          command: npm test
-      - store_test_results:
-          path: test-results
   deploy_to_staging:
     docker:
       - image: google/cloud-sdk
