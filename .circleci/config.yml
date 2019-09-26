@@ -24,7 +24,7 @@ jobs:
       - PROJECT_NAME: "circle-ci-demo"
       - GOOGLE_PROJECT_ID: "agile-em-bootcamp-sept-2019"
       - GOOGLE_COMPUTE_ZONE: "us-central1-a"
-      - GOOGLE_CLUSTER_NAME: "aem-1-cluster"
+      - GOOGLE_CLUSTER_NAME: "aem-cluster-2"
     steps:
       - checkout
       - run: 
