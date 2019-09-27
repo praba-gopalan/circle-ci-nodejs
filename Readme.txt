@@ -15,11 +15,11 @@ Please follow the following instructions:
 3) Copy in these commands into the command prompt to submit your code to the build process
 - git add .
 - git commit -m "feat: adding new analytics tracking code"
-- git push origin master
+- git push origin feat/team-3
 
 4) go to CircleCI tab on the browser to view the build process in action
 
-5) Go to your freshly deployed website: http://35.244.8.54/team-2.html
+5) Go to your freshly deployed website: http://34.93.191.225/team-3.html
 
 6) Click on the "Make new order" button
 
