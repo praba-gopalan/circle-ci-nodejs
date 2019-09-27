@@ -15,7 +15,7 @@ Please follow the following instructions:
 3) Copy in these commands into the command prompt to submit your code to the build process
 - git add .
 - git commit -m "feat: adding new analytics tracking code"
-- git push origin master
+- git push origin feat/team-2
 
 4) go to CircleCI tab on the browser to view the build process in action
 
