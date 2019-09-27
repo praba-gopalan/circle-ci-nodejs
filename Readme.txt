@@ -19,7 +19,7 @@ Please follow the following instructions:
 
 4) go to CircleCI tab on the browser to view the build process in action
 
-5) Go to your freshly deployed website: https://34.93.79.189/team-1.html
+5) Go to your freshly deployed website: http://34.93.79.189/team-1.html
 
 6) Click on the "Make new order" button
 
